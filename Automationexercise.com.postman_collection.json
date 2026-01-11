@@ -20,6 +20,7 @@
 									"    pm.response.to.have.status(200);\r",
 									"});\r",
 									"\r",
+									"\r",
 									"pm.test(\"Verify the Get all ProductList APi status Message is OK\", function () {\r",
 									"    pm.response.to.have.status(\"OK\");\r",
 									"});\r",
