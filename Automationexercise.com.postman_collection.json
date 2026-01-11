@@ -33,15 +33,28 @@
 								"packages": {},
 								"requests": {}
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
 						}
 					],
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseurl}}/api/productsList",
+							"raw": "https://automationexercise.com/api/productsList",
+							"protocol": "https",
 							"host": [
-								"{{baseurl}}"
+								"automationexercise",
+								"com"
 							],
 							"path": [
 								"api",
@@ -179,9 +192,11 @@
 							]
 						},
 						"url": {
-							"raw": "{{baseurl}}/api/createAccount",
+							"raw": "https://automationexercise.com/api/createAccount",
+							"protocol": "https",
 							"host": [
-								"{{baseurl}}"
+								"automationexercise",
+								"com"
 							],
 							"path": [
 								"api",
@@ -244,9 +259,11 @@
 							]
 						},
 						"url": {
-							"raw": "{{baseurl}}/api/verifyLogin",
+							"raw": "https://automationexercise.com/api/verifyLogin",
+							"protocol": "https",
 							"host": [
-								"{{baseurl}}"
+								"automationexercise",
+								"com"
 							],
 							"path": [
 								"api",
@@ -400,9 +417,11 @@
 							]
 						},
 						"url": {
-							"raw": "{{baseurl}}/api/verifyLogin",
+							"raw": "https://automationexercise.com/api/verifyLogin",
+							"protocol": "https",
 							"host": [
-								"{{baseurl}}"
+								"automationexercise",
+								"com"
 							],
 							"path": [
 								"api",
@@ -437,12 +456,6 @@
 					""
 				]
 			}
-		}
-	],
-	"variable": [
-		{
-			"key": "baseurl",
-			"value": ""
 		}
 	]
 }
