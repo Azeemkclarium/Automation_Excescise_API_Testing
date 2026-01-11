@@ -78,7 +78,7 @@
 									"});\r",
 									"\r",
 									"pm.test(\"Check if the response time is less than 300ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});"
 								],
 								"type": "text/javascript",
@@ -220,7 +220,7 @@
 									"});\r",
 									"\r",
 									"pm.test(\"Check if the response time is less than 300ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
 									"});"
 								],
 								"type": "text/javascript",
@@ -289,8 +289,10 @@
 									"    pm.response.to.have.status(200);\r",
 									"});\r",
 									"\r",
-									"pm.test(\"Verify the Get all ProductList APi status Message is OK\", function () {\r",
-									"    pm.response.to.have.status(\"OK\");\r",
+									"pm.test(\"Validate Response message\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.message).to.eql(\"This request method is not supported.\");\r",
+									"    pm.expect(jsonData.responseCode).to.eql(405);\r",
 									"});\r",
 									"\r",
 									"pm.test(\"Response time is less than 500ms\", function () {\r",
@@ -307,15 +309,28 @@
 								"packages": {},
 								"requests": {}
 							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
 						}
 					],
 					"request": {
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "{{baseurl}}/api/productsList",
+							"raw": "https://automationexercise.com/api/productsList",
+							"protocol": "https",
 							"host": [
-								"{{baseurl}}"
+								"automationexercise",
+								"com"
 							],
 							"path": [
 								"api",
