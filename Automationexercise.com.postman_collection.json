@@ -383,9 +383,11 @@
 							]
 						},
 						"url": {
-							"raw": "{{baseurl}}/api/verifyLogin",
+							"raw": "https://automationexercise.com/api/verifyLogin",
+							"protocol": "https",
 							"host": [
-								"{{baseurl}}"
+								"automationexercise",
+								"com"
 							],
 							"path": [
 								"api",
@@ -447,6 +449,47 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Crul command API",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "ajjuazeem15@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "Ajjuazeem24",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://automationexercise.com/api/verifyLogin",
+					"protocol": "https",
+					"host": [
+						"automationexercise",
+						"com"
+					],
+					"path": [
+						"api",
+						"verifyLogin"
+					]
+				},
+				"description": "Generated from cURL: curl --location 'https://automationexercise.com/api/verifyLogin' \\\r\n--header 'Content-Type: application/x-www-form-urlencoded' \\\r\n--data-urlencode 'email=ajjuazeem15@gmail.com' \\\r\n--data-urlencode 'password=Ajjuazeem24'"
+			},
+			"response": []
 		}
 	],
 	"event": [
