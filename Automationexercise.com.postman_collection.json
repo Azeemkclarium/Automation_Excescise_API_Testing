@@ -1,517 +1,659 @@
 {
-	"info": {
-		"_postman_id": "ddb73fbd-ec0a-469e-aa39-b1d3678aaa75",
-		"name": "Automationexercise.com",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "26566654"
-	},
-	"item": [
-		{
-			"name": "Green Path Testing",
-			"item": [
-				{
-					"name": "All Product List - Positive",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Verify the Get all ProductList APi status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"\r",
-									"\r",
-									"\r",
-									"pm.test(\"Response time is less than 500ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(600);\r",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "https://automationexercise.com/api/productsList",
-							"protocol": "https",
-							"host": [
-								"automationexercise",
-								"com"
-							],
-							"path": [
-								"api",
-								"productsList"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Register User - Postive",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Validate Register User \", function () {\r",
-									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData.message).to.eql(\"Email already exists!\");\r",
-									"    pm.expect(jsonData.responseCode).to.eql(400);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Check if the response time is less than 300ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "name",
-									"value": "{{name}}",
-									"type": "text"
-								},
-								{
-									"key": "email",
-									"value": "{{email}}",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "{{password}}",
-									"type": "text"
-								},
-								{
-									"key": "title",
-									"value": "{{title}}",
-									"type": "text"
-								},
-								{
-									"key": "birth_date",
-									"value": "{{birth_date}}",
-									"type": "text"
-								},
-								{
-									"key": "birth_month",
-									"value": "{{birth_month}}",
-									"type": "text"
-								},
-								{
-									"key": "birth_year",
-									"value": "{{birth_year}}",
-									"type": "text"
-								},
-								{
-									"key": "firstname",
-									"value": "{{firstname}}",
-									"type": "text"
-								},
-								{
-									"key": "lastname",
-									"value": "{{lastname}}",
-									"type": "text"
-								},
-								{
-									"key": "company",
-									"value": "{{company}}",
-									"type": "text"
-								},
-								{
-									"key": "address1",
-									"value": "{{address1}}",
-									"type": "text"
-								},
-								{
-									"key": "address2",
-									"value": "{{address2}}",
-									"type": "text"
-								},
-								{
-									"key": "country",
-									"value": "{{country}}",
-									"type": "text"
-								},
-								{
-									"key": "zipcode",
-									"value": "{{zipcode}}",
-									"type": "text"
-								},
-								{
-									"key": "state",
-									"value": "{{state}}",
-									"type": "text"
-								},
-								{
-									"key": "city",
-									"value": "{{city}}",
-									"type": "text"
-								},
-								{
-									"key": "mobile_number",
-									"value": "{{mobile_number}}",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "https://automationexercise.com/api/createAccount",
-							"protocol": "https",
-							"host": [
-								"automationexercise",
-								"com"
-							],
-							"path": [
-								"api",
-								"createAccount"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Login Verify - Positive",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Validate Login with Valid Credentials\", function () {\r",
-									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData.message).to.eql(\"User exists!\");\r",
-									"    pm.expect(jsonData.responseCode).to.eql(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Check if the response time is less than 300ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "email",
-									"value": "ajjuazeem15@gmail.com",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "Ajjuazeem24",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "https://automationexercise.com/api/verifyLogin",
-							"protocol": "https",
-							"host": [
-								"automationexercise",
-								"com"
-							],
-							"path": [
-								"api",
-								"verifyLogin"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Red Path Testing",
-			"item": [
-				{
-					"name": "All Product List - Negative",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Verify the Get all ProductList APi status code is 200\", function () {\r",
-									"    pm.response.to.have.status(200);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Validate Response message\", function () {\r",
-									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData.message).to.eql(\"This request method is not supported.\");\r",
-									"    pm.expect(jsonData.responseCode).to.eql(405);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Response time is less than 500ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Validate Response Code & Message in Response Body\", function () {\r",
-									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData.responseCode).to.eql(405);\r",
-									"    pm.expect(jsonData.message).to.eql(\"This request method is not supported.\");\r",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						},
-						{
-							"listen": "prerequest",
-							"script": {
-								"exec": [
-									""
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "https://automationexercise.com/api/productsList",
-							"protocol": "https",
-							"host": [
-								"automationexercise",
-								"com"
-							],
-							"path": [
-								"api",
-								"productsList"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Login Verify - Negative",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Validate Login with Invalid Credential\", function () {\r",
-									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData.message).to.eql(\"User not found!\");\r",
-									"    pm.expect(jsonData.responseCode).to.eql(404);\r",
-									"});\r",
-									"\r",
-									"\r",
-									"pm.test(\"Check if the response time is less than 300ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "email",
-									"value": "azeemk@clarium.tech",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "75062Ford",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "https://automationexercise.com/api/verifyLogin",
-							"protocol": "https",
-							"host": [
-								"automationexercise",
-								"com"
-							],
-							"path": [
-								"api",
-								"verifyLogin"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Login Verify - Negative Missing Param",
-					"event": [
-						{
-							"listen": "test",
-							"script": {
-								"exec": [
-									"pm.test(\"Validate Logins with Missing Parameter\", function () {\r",
-									"    var jsonData = pm.response.json();\r",
-									"    pm.expect(jsonData.message).to.eql(\"Bad request, email or password parameter is missing in POST request.\");\r",
-									"    pm.expect(jsonData.responseCode).to.eql(400);\r",
-									"});\r",
-									"\r",
-									"pm.test(\"Check if the response time is less than 300ms\", function () {\r",
-									"    pm.expect(pm.response.responseTime).to.be.below(300);\r",
-									"});"
-								],
-								"type": "text/javascript",
-								"packages": {},
-								"requests": {}
-							}
-						}
-					],
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "email",
-									"value": "azeemk@clarium.tech",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "https://automationexercise.com/api/verifyLogin",
-							"protocol": "https",
-							"host": [
-								"automationexercise",
-								"com"
-							],
-							"path": [
-								"api",
-								"verifyLogin"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Crul command API",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/x-www-form-urlencoded"
-					}
-				],
-				"body": {
-					"mode": "urlencoded",
-					"urlencoded": [
-						{
-							"key": "email",
-							"value": "ajjuazeem15@gmail.com",
-							"type": "text"
-						},
-						{
-							"key": "password",
-							"value": "Ajjuazeem24",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "https://automationexercise.com/api/verifyLogin",
-					"protocol": "https",
-					"host": [
-						"automationexercise",
-						"com"
-					],
-					"path": [
-						"api",
-						"verifyLogin"
-					]
-				},
-				"description": "Generated from cURL: curl --location 'https://automationexercise.com/api/verifyLogin' \\\r\n--header 'Content-Type: application/x-www-form-urlencoded' \\\r\n--data-urlencode 'email=ajjuazeem15@gmail.com' \\\r\n--data-urlencode 'password=Ajjuazeem24'"
-			},
-			"response": []
-		}
-	],
-	"event": [
-		{
-			"listen": "prerequest",
-			"script": {
-				"type": "text/javascript",
-				"packages": {},
-				"requests": {},
-				"exec": [
-					""
-				]
-			}
-		},
-		{
-			"listen": "test",
-			"script": {
-				"type": "text/javascript",
-				"packages": {},
-				"requests": {},
-				"exec": [
-					""
-				]
-			}
-		}
-	]
+  "info": {
+    "_postman_id": "ddb73fbd-ec0a-469e-aa39-b1d3678aaa75",
+    "name": "Automationexercise.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "26566654"
+  },
+  "item": [
+    {
+      "name": "Green Path Testing",
+      "item": [
+        {
+          "name": "All Product List - Positive",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Verify the Get all ProductList APi status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "\r",
+                  "pm.test(\"Response time is less than 500ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(600);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://automationexercise.com/api/productsList",
+              "protocol": "https",
+              "host": [
+                "automationexercise",
+                "com"
+              ],
+              "path": [
+                "api",
+                "productsList"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Register User - Postive",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Validate Register User \", function () {\r",
+                  "    var jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.message).to.eql(\"Email already exists!\");\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(400);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Check if the response time is less than 300ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "name",
+                  "value": "{{name}}",
+                  "type": "text",
+                  "uuid": "844e520d-8468-48bf-92fe-492040c630f9"
+                },
+                {
+                  "key": "email",
+                  "value": "{{email}}",
+                  "type": "text",
+                  "uuid": "6b474465-92b2-4911-bf45-3a4c67931983"
+                },
+                {
+                  "key": "password",
+                  "value": "{{password}}",
+                  "type": "text",
+                  "uuid": "2d3c6d2b-63e2-4ce3-bb13-8ebdf5e2a5ae"
+                },
+                {
+                  "key": "title",
+                  "value": "{{title}}",
+                  "type": "text",
+                  "uuid": "13ddb431-0035-40f3-8211-d92d9fd03810"
+                },
+                {
+                  "key": "birth_date",
+                  "value": "{{birth_date}}",
+                  "type": "text",
+                  "uuid": "b6ef8b78-234f-428f-8e88-17612b963419"
+                },
+                {
+                  "key": "birth_month",
+                  "value": "{{birth_month}}",
+                  "type": "text",
+                  "uuid": "b8876a4a-22c3-4461-b26e-cea8c133c6a0"
+                },
+                {
+                  "key": "birth_year",
+                  "value": "{{birth_year}}",
+                  "type": "text",
+                  "uuid": "5f032676-95c5-4c81-aec0-2b4876b36a2b"
+                },
+                {
+                  "key": "firstname",
+                  "value": "{{firstname}}",
+                  "type": "text",
+                  "uuid": "c69eb201-7ef0-4b7d-8745-e6d9628e4d57"
+                },
+                {
+                  "key": "lastname",
+                  "value": "{{lastname}}",
+                  "type": "text",
+                  "uuid": "0453e5a9-e335-46cc-931e-d526f31eb089"
+                },
+                {
+                  "key": "company",
+                  "value": "{{company}}",
+                  "type": "text",
+                  "uuid": "abb7af29-4ed9-4e8b-8dea-f25f89124727"
+                },
+                {
+                  "key": "address1",
+                  "value": "{{address1}}",
+                  "type": "text",
+                  "uuid": "314dc81c-65ed-4c30-89c9-c2357f49f38c"
+                },
+                {
+                  "key": "address2",
+                  "value": "{{address2}}",
+                  "type": "text",
+                  "uuid": "c2659391-08ff-4390-93e9-bbfcc1d6fd6e"
+                },
+                {
+                  "key": "country",
+                  "value": "{{country}}",
+                  "type": "text",
+                  "uuid": "1d1a8ee1-3a02-4170-9a93-e3d406f7af6e"
+                },
+                {
+                  "key": "zipcode",
+                  "value": "{{zipcode}}",
+                  "type": "text",
+                  "uuid": "b9b5500a-2825-47e9-a8a2-be5653ade128"
+                },
+                {
+                  "key": "state",
+                  "value": "{{state}}",
+                  "type": "text",
+                  "uuid": "ce14f043-7a2c-4189-8c66-8812f3df996a"
+                },
+                {
+                  "key": "city",
+                  "value": "{{city}}",
+                  "type": "text",
+                  "uuid": "820bf69e-5254-4598-bdb9-2e1ff2f80ed3"
+                },
+                {
+                  "key": "mobile_number",
+                  "value": "{{mobile_number}}",
+                  "type": "text",
+                  "uuid": "bd49451c-ccd0-4442-bae8-3533562e47cb"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://automationexercise.com/api/createAccount",
+              "protocol": "https",
+              "host": [
+                "automationexercise",
+                "com"
+              ],
+              "path": [
+                "api",
+                "createAccount"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login Verify - Positive",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Validate Login with Valid Credentials\", function () {\r",
+                  "    var jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.message).to.eql(\"User exists!\");\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Check if the response time is less than 300ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "email",
+                  "value": "ajjuazeem15@gmail.com",
+                  "type": "text",
+                  "uuid": "79df309c-31ae-418d-b52c-66e98d9cca2f"
+                },
+                {
+                  "key": "password",
+                  "value": "Ajjuazeem24",
+                  "type": "text",
+                  "uuid": "33eb04ee-5ccf-409c-8491-9aff8a52c1ac"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://automationexercise.com/api/verifyLogin",
+              "protocol": "https",
+              "host": [
+                "automationexercise",
+                "com"
+              ],
+              "path": [
+                "api",
+                "verifyLogin"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Pagination",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "// 1. Configuration - Set your limit here\r",
+                  "const MAX_PAGES_TO_TEST = Number(pm.collectionVariables.get(\"MAX_PAGES_TO_TEST\"));\r",
+                  "console.log(\"Maximum pages to test is COnfigured to : \" + MAX_PAGES_TO_TEST);\r",
+                  "\r",
+                  "// 2. Parse response\r",
+                  "const jsonData = pm.response.json();\r",
+                  "let nexturl = jsonData.info.next;\r",
+                  "\r",
+                  "// 3. Logic to extract page number and decide to loop\r",
+                  "if (nexturl !== null) {\r",
+                  "    let parsedUrl = new URL(nexturl);\r",
+                  "    let pageNumber = parseInt(parsedUrl.searchParams.get(\"page\"));\r",
+                  "    \r",
+                  "    console.log(\"Next Page detected: \" + pageNumber);\r",
+                  "\r",
+                  "    // 4. CHECK: Is the next page within our limit?\r",
+                  "    if (pageNumber <= MAX_PAGES_TO_TEST) {\r",
+                  "        pm.collectionVariables.set(\"currentpage\", pageNumber);\r",
+                  "        \r",
+                  "        console.log(`Limit not reached. Proceeding to page ${pageNumber}...`);\r",
+                  "        pm.execution.setNextRequest(\"Pagination\");\r",
+                  "    } else {\r",
+                  "        console.log(`Reached Max Page limit (${MAX_PAGES_TO_TEST}). Stopping loop.`);\r",
+                  "        pm.execution.setNextRequest(null);\r",
+                  "        pm.collectionVariables.set(\"currentpage\", 1);\r",
+                  "    }\r",
+                  "\r",
+                  "} else {\r",
+                  "    console.log(\"Reached the end of the API data. Stopping.\");\r",
+                  "    pm.execution.setNextRequest(null);\r",
+                  "}"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://rickandmortyapi.com/api/character?page={{currentpage}}",
+              "protocol": "https",
+              "host": [
+                "rickandmortyapi",
+                "com"
+              ],
+              "path": [
+                "api",
+                "character"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "{{currentpage}}"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Red Path Testing",
+      "item": [
+        {
+          "name": "All Product List - Negative",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Verify the Get all ProductList APi status code is 200\", function () {\r",
+                  "    pm.response.to.have.status(200);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Validate Response message\", function () {\r",
+                  "    var jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.message).to.eql(\"This request method is not supported.\");\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(405);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Response time is less than 500ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Validate Response Code & Message in Response Body\", function () {\r",
+                  "    var jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(405);\r",
+                  "    pm.expect(jsonData.message).to.eql(\"This request method is not supported.\");\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            },
+            {
+              "listen": "prerequest",
+              "script": {
+                "exec": [
+                  ""
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "https://automationexercise.com/api/productsList",
+              "protocol": "https",
+              "host": [
+                "automationexercise",
+                "com"
+              ],
+              "path": [
+                "api",
+                "productsList"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login Verify - Negative",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Validate Login with Invalid Credential\", function () {\r",
+                  "    var jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.message).to.eql(\"User not found!\");\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(404);\r",
+                  "});\r",
+                  "\r",
+                  "\r",
+                  "pm.test(\"Check if the response time is less than 300ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "email",
+                  "value": "azeemk@clarium.tech",
+                  "type": "text",
+                  "uuid": "79df309c-31ae-418d-b52c-66e98d9cca2f"
+                },
+                {
+                  "key": "password",
+                  "value": "75062Ford",
+                  "type": "text",
+                  "uuid": "33eb04ee-5ccf-409c-8491-9aff8a52c1ac"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://automationexercise.com/api/verifyLogin",
+              "protocol": "https",
+              "host": [
+                "automationexercise",
+                "com"
+              ],
+              "path": [
+                "api",
+                "verifyLogin"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login Verify - Negative Missing Param",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Validate Logins with Missing Parameter\", function () {\r",
+                  "    var jsonData = pm.response.json();\r",
+                  "    pm.expect(jsonData.message).to.eql(\"Bad request, email or password parameter is missing in POST request.\");\r",
+                  "    pm.expect(jsonData.responseCode).to.eql(400);\r",
+                  "});\r",
+                  "\r",
+                  "pm.test(\"Check if the response time is less than 300ms\", function () {\r",
+                  "    pm.expect(pm.response.responseTime).to.be.below(300);\r",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "key": "email",
+                  "value": "azeemk@clarium.tech",
+                  "type": "text",
+                  "uuid": "79df309c-31ae-418d-b52c-66e98d9cca2f"
+                }
+              ]
+            },
+            "url": {
+              "raw": "https://automationexercise.com/api/verifyLogin",
+              "protocol": "https",
+              "host": [
+                "automationexercise",
+                "com"
+              ],
+              "path": [
+                "api",
+                "verifyLogin"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Crul command API",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/x-www-form-urlencoded"
+          }
+        ],
+        "body": {
+          "mode": "urlencoded",
+          "urlencoded": [
+            {
+              "type": "text",
+              "key": "email",
+              "value": "ajjuazeem15@gmail.com"
+            },
+            {
+              "type": "text",
+              "key": "password",
+              "value": "Ajjuazeem24"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://automationexercise.com/api/verifyLogin",
+          "protocol": "https",
+          "host": [
+            "automationexercise",
+            "com"
+          ],
+          "path": [
+            "api",
+            "verifyLogin"
+          ]
+        },
+        "description": "Generated from cURL: curl --location 'https://automationexercise.com/api/verifyLogin' \\\r\n--header 'Content-Type: application/x-www-form-urlencoded' \\\r\n--data-urlencode 'email=ajjuazeem15@gmail.com' \\\r\n--data-urlencode 'password=Ajjuazeem24'"
+      },
+      "response": []
+    },
+    {
+      "name": "Fileupload",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "File",
+              "type": "file",
+              "uuid": "025d601c-1d95-42f1-8855-26857801405a",
+              "src": "/C:/Users/AzeemK/Downloads/QA Requirement.docx"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://file.io",
+          "protocol": "https",
+          "host": [
+            "file",
+            "io"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "currentPage",
+      "value": ""
+    },
+    {
+      "key": "currentpage",
+      "value": ""
+    },
+    {
+      "key": "MAX_PAGES_TO_TEST",
+      "value": "",
+      "type": "default"
+    }
+  ]
 }
